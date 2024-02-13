@@ -18,7 +18,22 @@ const listingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-
+    Reviews: {
+      type: Boolean,
+      required: true,
+    },
+    SponsoredContent: {
+      type: Boolean,
+      required: true,
+    },
+    Giveaways: {
+      type: Boolean,
+      required: true,
+    },
+    Events: {
+      type: Boolean,
+      required: true,
+    },
     imageUrls: {
       type: Array,
       required: true,
