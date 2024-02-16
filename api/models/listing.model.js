@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const listingSchema = new mongoose.Schema(
   {
@@ -18,19 +18,19 @@ const listingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    Reviews: {
+    reviews: {
       type: Boolean,
       required: true,
     },
-    SponsoredContent: {
+    sponsoredContent: {
       type: Boolean,
       required: true,
     },
-    Giveaways: {
+    giveaways: {
       type: Boolean,
       required: true,
     },
-    Events: {
+    events: {
       type: Boolean,
       required: true,
     },
@@ -46,6 +46,6 @@ const listingSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Listing = mongoose.model("Listing", listingSchema);
+const Listing = mongoose.model('Listing', listingSchema);
 
 export default Listing;
