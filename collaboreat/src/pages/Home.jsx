@@ -9,11 +9,10 @@ export default function Home() {
       <div className=''>
         <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
           Find your next <span className='text-slate-600'> perfect </span>
-          <br />
           collaboration with ease
         </h1>
       </div>
-      <div className='text-gray-400 text-xs sm:text-sm'>
+      <div className='text-gray-400 text-xs sm:text-xl'>
         Find Restaurants to collaborate with
       </div>
       <Link
