@@ -67,9 +67,44 @@ export const getListings = async (req, res, next) => {
     const limit = parseInt(req.query.limit) || 9;
     const startIndex = parseInt(req.query.startIndex) || 0;
     let reviews = req.query.reviews;
-    if (offer === 'undefined' || offer === 'false') {
-      offer = undefined;
+    if (reviews === undefined || reviews === 'false') {
+      reviews = { $in: [false, true] };
     }
+
+    let sponsoredContent = req.query.sponsoredContent;
+    if (sponsoredContent === undefined || sponsoredContent === 'false') {
+      sponsoredContent = { $in: [false, true] };
+    }
+
+    let giveaways = req.querygiveaways;
+    if (giveaways === undefined || giveaways === 'false') {
+      giveaways = { $in: [false, true] };
+    }
+
+    let events = req.query.events;
+    if (events === undefined || events === 'false') {
+      events = { $in: [false, true] };
+    }
+
+    const searchTerm = req.query.searchTerm || '';
+
+    const sort = req.query.sort || 'createdAt';
+
+    const order = req.query.order || 'desc';
+
+    const listings = await Listing.find({
+      name: { $regex: searchTerm, $options: 'i' },
+      reviews,
+      sponsoredContent,
+      giveaways,
+      events,
+    })
+      .sort({
+        [sort]: order,
+      })
+      .limit(limit)
+      .skip(startIndex);
+
     return res.status(200).json(listings);
   } catch (error) {
     next(error);
