@@ -14,13 +14,16 @@ import {
   FaParking,
   FaShare,
 } from 'react-icons/fa';
+import Contact from '../components/Contact';
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
   const [listing, setListing] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [contact, setContact] = useState(false);
   const params = useParams();
+  const { currentUser } = useSelector((state) => state.user);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -100,14 +103,17 @@ export default function Listing() {
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
                 {listing.events ? 'No events' : 'Events'}
-              </li>{' '}
+              </li>
             </ul>
-            <button
-              onClick={() => setContact(true)}
-              className='bg-green-800 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
-            >
-              Contact Restaurant
-            </button>
+            {currentUser && listing.userRef !== currentUser._id && !contact && (
+              <button
+                onClick={() => setContact(true)}
+                className='bg-green-800 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+              >
+                Contact Restaurant
+              </button>
+            )}
+            {contact && <Contact listing={listing} />}
           </div>
         </div>
       )}
