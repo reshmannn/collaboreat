@@ -76,7 +76,7 @@ export const getListings = async (req, res, next) => {
       sponsoredContent = { $in: [false, true] };
     }
 
-    let giveaways = req.querygiveaways;
+    let giveaways = req.query.giveaways;
     if (giveaways === undefined || giveaways === 'false') {
       giveaways = { $in: [false, true] };
     }
