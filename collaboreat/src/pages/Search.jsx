@@ -7,6 +7,7 @@ export default function Search() {
   const location = useLocation();
   const [sidebardata, setSidebardata] = useState({
     searchTerm: '',
+    address: '',
     reviews: false,
     sponsoredContent: false,
     giveaways: false,
@@ -25,6 +26,7 @@ export default function Search() {
     const sponsoredContentFromUrl = urlParams.get('sponsoredContent');
     const giveawaysFromUrl = urlParams.get('giveaways');
     const eventsFromUrl = urlParams.get('events');
+    const addressFromUrl = urlParams.get('address');
     const sortFromUrl = urlParams.get('sort');
     const orderFromUrl = urlParams.get('order');
 
@@ -35,10 +37,12 @@ export default function Search() {
       giveawaysFromUrl ||
       eventsFromUrl ||
       sortFromUrl ||
-      orderFromUrl
+      orderFromUrl ||
+      addressFromUrl
     ) {
       setSidebardata({
         searchTerm: searchTermFromUrl || '',
+        address: searchTermFromUrl || '',
         reviews: reviewsFromUrl === 'true',
         sponsoredContent: sponsoredContentFromUrl === 'true',
         giveaways: giveawaysFromUrl === 'true',
@@ -91,6 +95,10 @@ export default function Search() {
       });
     }
 
+    if (e.target.id === 'address') {
+      setSidebardata({ ...sidebardata, address: e.target.value });
+    }
+
     if (e.target.id === 'sort_order') {
       const sort = e.target.value.split('_')[0] || 'created_at';
 
@@ -110,6 +118,7 @@ export default function Search() {
     urlParams.set('sponsoredContent', sidebardata.sponsoredContent);
     urlParams.set('sort', sidebardata.sort);
     urlParams.set('order', sidebardata.order);
+    urlParams.set('address', sidebardata.address);
     const searchQuery = urlParams.toString();
     navigate(`/search?${searchQuery}`);
   };
