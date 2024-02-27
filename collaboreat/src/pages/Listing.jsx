@@ -82,19 +82,19 @@ export default function Listing() {
             <ul className='text-slate-800 font-semibold text-sm flex flex-wrap items-center gap-4 sm:gap-6'>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
-                {listing.sponsoredContent ? 'No sponsors' : 'Sponsers'}
+                {listing.reviews ? ' Reviews' : 'No Reviews'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
-                {listing.reviews ? 'No reviews' : 'Reviews'}
+                {listing.giveaways ? ' Giveaways' : ' No Giveaways'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
-                {listing.giveaways ? 'No giveaway' : 'Giveaways'}
+                {listing.sponsoredContent ? ' Sponsors' : 'No Sponsers'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
-                {listing.events ? 'No events' : 'Events'}
+                {listing.events ? ' Events' : ' No Events'}
               </li>
             </ul>
             {currentUser && listing.userRef !== currentUser._id && !contact && (
