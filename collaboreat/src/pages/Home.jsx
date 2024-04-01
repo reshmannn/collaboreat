@@ -26,9 +26,11 @@ export default function Home() {
   return (
     <div>
       {/* top */}
+
       <div className='flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto'>
-        <h1 className='text-slate-700 font-bold text-3xl lg:text-6xl'>
-          Here you can find perfect collaboration with ease
+        <h1 className='text-slate-700 font-bold text-xl lg:text-4xl'>
+          Discover the particular collaboration opportunity for culinary journey
+          right here on CollaborEat
         </h1>
         <div className='text-slate-500 text-m  font-semibold'>
           CollaborEat is an innovative platform designed to streamline
@@ -65,19 +67,19 @@ export default function Home() {
           ))}
       </Swiper>
 
-      <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
+      <div className='max-w-6xl mx-auto p-3 flex flex-col gap-10 my-10'>
         {listings && listings.length > 0 && (
           <div className=''>
             <div className='my-3'>
               <h2 className='text-2xl font-semibold text-slate-600'>
                 All the Restaurants!
               </h2>
-              {/* <Link
+              <Link
                 className='text-sm text-blue-800 hover:underline'
                 to={'/search?listings=true'}
               >
                 Show more restaurants
-              </Link> */}
+              </Link>
             </div>
             <div className='flex flex-wrap gap-4'>
               {listings.map((listing) => (

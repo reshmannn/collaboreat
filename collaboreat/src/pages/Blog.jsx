@@ -147,13 +147,13 @@ export default function CreateListing() {
   return (
     <main className='p-3 max-w-4xl mx-auto'>
       <h1 className='text-3xl font-semibold text-center my-7'>
-        Create your restaurant listing!
+        Create Your profile!
       </h1>
       <form onSubmit={handleSubmit} className='flex flex-col sm:flex-row gap-4'>
         <div className='flex flex-col gap-4 flex-1'>
           <input
             type='text'
-            placeholder='Name of the Restaurant'
+            placeholder='Your Name'
             className='border p-3 rounded-lg'
             id='name'
             maxLength='62'
@@ -164,7 +164,7 @@ export default function CreateListing() {
           />
           <textarea
             type='text'
-            placeholder='Description'
+            placeholder='Your Description'
             className='border p-3 rounded-lg'
             id='description'
             required
@@ -173,7 +173,7 @@ export default function CreateListing() {
           />
           <input
             type='text'
-            placeholder='Address'
+            placeholder='Your Address'
             className='border p-3 rounded-lg'
             id='address'
             required
@@ -251,7 +251,7 @@ export default function CreateListing() {
           <div className='flex gap-4'>
             <input
               onChange={(e) => setFiles(e.target.files)}
-              className='p-3 border border-gray-300 rounded w-full'
+              className=' p-2 border border-gray-400 rounded-lg w-full'
               type='file'
               id='images'
               accept='image/*'

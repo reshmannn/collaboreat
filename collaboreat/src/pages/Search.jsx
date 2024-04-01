@@ -142,7 +142,7 @@ export default function Search() {
       <div className='p-7 border-b-2 md:border-r-2 md:min-h-screen'>
         <form onSubmit={handleSubmit} className='flex flex-col gap-8'>
           <div className=''>
-            <label className='font-semibold'> Search Term:</label>
+            <label className='font-semibold'> Search Here:</label>
             <input
               type='text'
               id='searchTerm'
@@ -220,7 +220,7 @@ export default function Search() {
         </h1>
         <div className='p-7 flex flex-wrap gap-4'>
           {!loading && listings.length === 0 && (
-            <p className='text-xl text-slate-700'> No restaurants found!</p>
+            <p className='text-xl text-slate-700'> No listings found!</p>
           )}
           {loading && (
             <p className='text-xl text-slate-700 text-center w-full'>

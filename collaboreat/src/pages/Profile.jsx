@@ -157,7 +157,7 @@ export default function Profile() {
 
   return (
     <div className='p-3 max-w-lg mx-auto'>
-      <h1 className='text-3xl font-semibold text-center my-7'>Profile</h1>
+      <h1 className='text-3xl font-semibold text-center my-7'>Your Profile</h1>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
         <input
           onChange={(e) => setFile(e.target.files[0])}
@@ -210,27 +210,36 @@ export default function Profile() {
         />
         <button
           disabled={loading}
-          className='bg-green-800 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
+          className='bg-slate-800 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'
         >
           {loading ? 'Loading...' : 'Update your profile'}
         </button>
         <Link
-          className='bg-green-800 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+          className='bg-slate-800 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
           to={'/create-listing'}
         >
-          Create Listings
+          Create profile for restaurant
+        </Link>
+        <Link
+          className='bg-slate-800 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
+          to={'/blog'}
+        >
+          Create Profile as content creator
         </Link>
       </form>
 
       <div className='flex justify-between mt-5'>
         <span
           onClick={handleDeleteUser}
-          className='text-red-700 cursor-pointer'
+          className='text-red-700 cursor-pointer font-semibold'
         >
           Delete Account
         </span>
 
-        <span onClick={handleSignOut} className='text-red-700 cursor-pointer'>
+        <span
+          onClick={handleSignOut}
+          className='text-red-700 cursor-pointer font-semibold'
+        >
           Sign Out
         </span>
       </div>
@@ -238,7 +247,10 @@ export default function Profile() {
       <p className='text-green-700 mt-5'>
         {updateSuccess ? 'User is updated successfully!' : ''}
       </p>
-      <button onClick={handleShowListings} className='text-green-700 w-full'>
+      <button
+        onClick={handleShowListings}
+        className='text-green-700 w-full font-semibold'
+      >
         Show Listings
       </button>
       <p className='text-red-700 mt-5'>
@@ -276,7 +288,7 @@ export default function Profile() {
                   Delete
                 </button>
                 <Link to={`/update-listing/${listing._id}`}>
-                  <button className='text-green-700 uppercase'>Edit </button>{' '}
+                  <button className='text-slate-700 uppercase'>Edit </button>{' '}
                 </Link>
               </div>
             </div>

@@ -61,7 +61,7 @@ export default function Listing() {
           </Swiper>
           <div className='flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4'>
             <p className='text-2xl font-semibold'>
-              {listing.name} - Rs.{' '}
+              {listing.name} - Rs.
               {listing.offer
                 ? listing.discountPrice.toLocaleString('en-US')
                 : listing.regularPrice.toLocaleString('en-US')}
@@ -84,13 +84,14 @@ export default function Listing() {
                 <FaParking className='text-lg' />
                 {listing.reviews ? ' Reviews' : 'No Reviews'}
               </li>
-              <li className='flex items-center gap-1 whitespace-nowrap '>
-                <FaParking className='text-lg' />
-                {listing.giveaways ? ' Giveaways' : ' No Giveaways'}
-              </li>
+
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
                 {listing.sponsoredContent ? ' Sponsors' : 'No Sponsers'}
+              </li>
+              <li className='flex items-center gap-1 whitespace-nowrap '>
+                <FaParking className='text-lg' />
+                {listing.giveaways ? ' Giveaways' : ' No Giveaways'}
               </li>
               <li className='flex items-center gap-1 whitespace-nowrap '>
                 <FaParking className='text-lg' />
@@ -102,7 +103,7 @@ export default function Listing() {
                 onClick={() => setContact(true)}
                 className='bg-green-800 text-white p-3 rounded-lg uppercase text-center hover:opacity-95'
               >
-                Contact Restaurant
+                Send a message
               </button>
             )}
             {contact && <Contact listing={listing} />}
